@@ -74,7 +74,7 @@ HEADERS = {
     "accept": "*/*",
     "content-type": "application/x-www-form-urlencoded",
     "platform": "app",
-    "authorization-token": "a041a647e5494d00a228166f90bceea2",
+    "authorization-token": "e3da145cc71e4cb0a9669f602e24ea78",
     "sid": "47",
     "user-agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Html5Plus/1.0 (Immersed/20) uni-app",
     "accept-language": "en-GB,en;q=0.9",
