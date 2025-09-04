@@ -128,13 +128,13 @@ def extract_order_id(decrypted_json_str):
         data = json.loads(decrypted_json_str)
         order_list = data.get("list", [])
         for order in order_list:
-            if order.get("userMemo"):
-                log("[跳过订单] 有备注")
-                continue
-            # names = order.get("item", {}).get("names", [])
-            # if voice_talking and any(keyword in name for keyword in ['连麦','听歌'] for name in names):
-            #     log("[跳过订单] 不要连麦单")
+            # if order.get("userMemo"):
+            #     log("[跳过订单] 有备注")
             #     continue
+            names = order.get("item", {}).get("names", [])
+            if voice_talking and any(keyword in name for keyword in ['连麦','听歌'] for name in names):
+                log("[跳过订单] 不要连麦单")
+                continue
             return order.get("id")
     except Exception as e:
         log(f"[提取订单 ID 失败] {e}")
