@@ -135,6 +135,10 @@ def extract_order_id(decrypted_json_str):
             if voice_talking and any(keyword in name for keyword in ['连麦','听歌'] for name in names):
                 log("[跳过订单] 不要连麦单")
                 continue
+             service_price = order.get("servicePrice", 0)
+            if service_price <= 1500:
+                log(f"[跳过订单] 价格过低 (servicePrice={service_price})")
+                continue
             return order.get("id")
     except Exception as e:
         log(f"[提取订单 ID 失败] {e}")
