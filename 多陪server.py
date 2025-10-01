@@ -202,7 +202,7 @@ def run_loop(interval):
             if order_id:
                 create_ts = extract_ts(decrypted)
                 log(f"[发现订单] ID = {order_id}")
-                threading.Thread(target=confirm_order, args=(order_id,), daemon=True).start()
+                threading.Thread(target=confirm_order, args=(order_id,create_ts), daemon=True).start()
                 # play_sound()
             else:
                 log("[无新订单]")
