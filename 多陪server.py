@@ -8,6 +8,7 @@ from Crypto.Cipher import AES
 from Crypto.Util.Padding import unpad
 from fastapi.middleware.cors import CORSMiddleware
 from datetime import datetime, timezone, timedelta
+import random
 # import os
 # import platform
 tz = timezone(timedelta(hours=8))
