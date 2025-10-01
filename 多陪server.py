@@ -6,10 +6,11 @@ import base64
 import requests
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import unpad
-from datetime import datetime
 from fastapi.middleware.cors import CORSMiddleware
+from datetime import datetime, timezone, timedelta
 # import os
 # import platform
+tz = timezone(timedelta(hours=8))
 
 app = FastAPI()
 app.add_middleware(
@@ -192,8 +193,8 @@ def confirm_order(order_id,create_ts):
 def run_loop(interval):
     global running
     while running:
-        now = datetime.now()
-        print("刷新时间 =", now.strftime("%H:%M:%S"))
+        now = datetime.now(tz)
+        print("刷新时间 =", now)
         decrypted = refresh_list()
         if decrypted:
             order_id = extract_order_id(decrypted)
