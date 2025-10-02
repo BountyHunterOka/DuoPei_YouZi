@@ -161,7 +161,7 @@ def extract_ts(decrypted_json_str):
 
 def sleep_time(create_ts, wait_time):
     now_ts = datetime.now(tz).timestamp()
-    target_ts = create_ts + wait_time + 5.5
+    target_ts = create_ts + wait_time
     sleep_seconds = target_ts - now_ts
     if sleep_seconds < 0:
         random_sleep = random.uniform(1, 2.5)
