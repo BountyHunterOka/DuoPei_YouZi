@@ -175,7 +175,7 @@ def confirm_order(order_id,create_ts):
     url = f"{BASE_URL}/s/c/order/confirm"
     data = {"id": order_id}
     try:
-        sleep_time(create_ts, 5.5)
+        sleep_time(create_ts, 7.5)
         while running:
             resp = session.post(url, data=data, timeout=3.5)
             da = resp.json()
