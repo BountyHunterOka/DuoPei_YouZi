@@ -150,6 +150,7 @@ def extract_order_id(decrypted_json_str):
             if amount <= 1500:
                 log('价格低于15，自动过滤')
                 continue
+                
             # if order.get("userMemo"):
             #     log("[跳过订单] 有备注")
             #     continue
