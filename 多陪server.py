@@ -142,18 +142,18 @@ def extract_order_id(decrypted_json_str):
         order_list = data.get("list", [])
         sensitive_words = ['腿','胸','不续单','狱卒','玉足','欲姐','萝莉','广东','四川','照片','黑丝','白丝','四爱','哄睡','我不说话','脚','看看','主动','麦当劳']
         for order in order_list:
-            memo = order.get("userMemo", "")
-            if any(word in memo for word in sensitive_words):
-                log("[跳过订单] 包含用户定义的敏感词")
-                continue
-            amount = order_list[0].get("totalAmount")
-            if amount <= 500:
-                log('价格低于15，自动过滤')
-                continue
-                
-            # if order.get("userMemo"):
-            #     log("[跳过订单] 有备注")
+            # memo = order.get("userMemo", "")
+            # if any(word in memo for word in sensitive_words):
+            #     log("[跳过订单] 包含用户定义的敏感词")
             #     continue
+            # amount = order_list[0].get("totalAmount")
+            # if amount <= 500:
+            #     log('价格低于15，自动过滤')
+            #     continue
+                
+            if order.get("userMemo"):
+                log("[跳过订单] 有备注")
+                continue
             names = order.get("item", {}).get("names", [])
             if voice_talking and any(keyword in name for keyword in ['连麦','听歌'] for name in names):
                 log("[跳过订单] 不要连麦单")
@@ -168,7 +168,7 @@ def confirm_order(order_id):
     data = {"id": order_id}
     try:
         while running:
-            time.sleep(6.2)
+            time.sleep(6)
             resp = session.post(url, data=data, timeout=3.5)
             da = resp.json()
             confirm_rep = decrypt_aes_cbc(da["response"], KEY_HEX, IV_HEX)
