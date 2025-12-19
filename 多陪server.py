@@ -168,7 +168,7 @@ def confirm_order(order_id):
     data = {"id": order_id}
     try:
         while running:
-            time.sleep(5.7)
+            time.sleep(5.65)
             resp = session.post(url, data=data, timeout=3.5)
             da = resp.json()
             confirm_rep = decrypt_aes_cbc(da["response"], KEY_HEX, IV_HEX)
