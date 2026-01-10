@@ -87,7 +87,7 @@ HEADERS = {
     "Accept": "*/*",
     "Accept-Encoding": "gzip, deflate, br",
     "Content-Type": "application/x-www-form-urlencoded",
-    "authorization-token": "863813e9df5e4e199afd2161406b6063",
+    "authorization-token": "d50562ebf6cc43ddad32d4293e6e7581",
     "sid": "47",
     "Host": "api.duopei.feiniaowangluo.com",
     "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_1_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Html5Plus/1.0 (lmmersed/20) uni-app",
